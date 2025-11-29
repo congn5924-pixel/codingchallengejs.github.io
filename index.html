@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pixel Paint v2</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    <body>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="../font.css">
+        <div class="w3-top geist-normal">
+            <div class="w3-bar w3-card" style="padding: 0px 0px; font-size: 24px; background-color: rgb(255, 255, 255);">
+                <a href="../index.html" class="w3-bar-item w3-wide geist-extra-bold", style="color:rgb(0, 76, 255)">MySite</a>
+                <div class="w3-right w3-hide-small">
+                    <a href="../index.html" class="w3-bar-item w3-button" style="padding: 16px 16px;">Home</a>
+                    <a href="../about/index.html" class="w3-bar-item w3-button" style="padding: 16px 16px;">About</a>
+                    <div class="w3-dropdown-hover">
+                        <button class="w3-button" style="padding: 16px 16px;">My Projects ▾</button>
+                        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                            <a href="../calculator/index.html" class="w3-bar-item w3-button" style="padding: 16px 16px;">Calculator</a>
+                            <a href="../pixelpain/index.html" class="w3-bar-item w3-button" style="padding: 16px 16px;">Pixel Paint</a>
+                            <!--a href="#" class="w3-bar-item w3-button">Service 3</a-->
+                        </div>
+                    </div>
+                    <a href="../contact/index.html" class="w3-bar-item w3-button" style="padding: 16px 16px;">Contact</a>
+                </div>
+                <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="toggleMenu()">☰</a>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium" style="margin-top:46px">
+            <a href="../index.html" class="w3-bar-item w3-button">Home</a>
+            <a href="../about/index.html" class="w3-bar-item w3-button">About</a>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">My Projects ▾</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="../calculator/index.html" class="w3-bar-item w3-button">Calculator</a>
+                    <a href="../pixelpain/index.html" class="w3-bar-item w3-button">Pixel Paint</a>
+                    <!--a href="#" class="w3-bar-item w3-button">Service 3</a-->
+                </div>
+            </div>
+            <a href="../contact/index.html" class="w3-bar-item w3-button">Contact</a>
+        </div>
+
+        <div id="toolbar-container">
+            <div class="controls">
+                <!--label for="color-picker">Select Color:</label-->
+                <input type="color" id="color-picker" class="picker" value="#ff0000">
+                <button id="clear-btn" class="clear">Clear</button>
+            </div>
+        
+            <!-- Tool row -->
+            <div class="tool-row" style="display: flex; gap: 10px; margin: 10px;">
+                <div class="button-row" id="bucket-tool"><i class="fas fa-fill-drip"></i></div>
+                <div class="button-row" id="color-copy-tool"><i class="fas fa-eye-dropper"></i></div>
+                <div class="button-row" id="eraser-tool"><i class="fas fa-eraser"></i></div>
+                <div class="button-row" id="pen-tool"><i class="fas fa-paint-brush"></i></div>
+            </div>
+        </div>
+        <div id="options">
+            <label class="container">Show Grid
+                <input type="checkbox" id="toggle-grid" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Rainbow Color
+                <input type="checkbox" id="toggle-rainow">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div id="sketch-row">
+            <div id="pen-size-container">
+                <label for="pen-size"><i class="fas fa-pencil"></i></label>
+                <input type="range" id="pen-size" class="slider" min="1" max="21" value="1">
+            </div>
+            <div id="canvas"></div>
+        </div>
+    
+        <script src="utility.js"></script>
+        <script src="tools.js"></script>
+        <script src="script.js"></script>
+
+        <script>
+            function toggleMenu() {
+                var x = document.getElementById("mobileMenu");
+                if (x.className.indexOf("w3-show") === -1) {
+                    x.className += " w3-show";
+                } else {
+                    x.className = x.className.replace(" w3-show", "");
+                }
+            }
+        </script>
+    </body>
+</html>

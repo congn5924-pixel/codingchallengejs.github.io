@@ -1,0 +1,49 @@
+.geist {
+    @font-face {
+        font-family: 'Geist';
+        src: url('assets/Geist/ttf/Geist-Light.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+    font-family: 'Geist', sans-serif;
+    font-weight: 700;
+}
+
+.geist-bold {
+    @font-face {
+        font-family: 'Geist Bold';
+        src: url('assets/Geist/ttf/Geist-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+    font-family: 'Geist Bold', sans-serif;
+    font-weight: 700;
+}
+
+.geist-extra-bold {
+    @font-face {
+        font-family: 'Geist Extra Bold';
+        src: url('assets/Geist/ttf/Geist-ExtraBold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+    font-family: 'Geist Extra Bold', sans-serif;
+    font-weight: 1000;
+    font-size: larger;
+}
+
+.geist-normal {
+    @font-face {
+        font-family: 'Geist Extra Bold';
+        src: url('assets/Geist/ttf/Geist-ExtraBold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+    font-family: 'Geist Extra Bold', sans-serif;
+    font-weight: 600;
+    color: rgb(67, 67, 69);
+}

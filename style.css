@@ -1,0 +1,324 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, aquamarine, #51ceff);
+}
+
+#color-picker {
+    margin: 10px;
+}
+
+#toolbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 0px;
+}
+
+.tool-row {
+    display: flex;
+    flex-basis: 20%;
+}
+
+#canvas {
+    display: grid;
+    grid-template-columns: repeat(32, 20px);
+    grid-template-rows: repeat(18, 20px);
+    gap: 0px;
+    margin: 0px 0;
+    background-color: rgb(255, 255, 255);
+}
+
+.pixel {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    user-select: none;  /* Prevents text selection */
+    -webkit-user-drag: none;  /* Disables dragging on WebKit browsers */
+    -moz-user-select: none;  /* Firefox-specific rule */
+}
+
+.hide-grid .pixel {
+    border: none;
+}
+
+
+.controls {
+    align-items: center;
+    display: flex;
+    margin: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.inputcolor {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background: rgba(205, 245, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color:#232323;
+    font-family: inherit;
+    font-size: 20px;
+    height: 45px;
+    padding: 10px;
+}
+
+.clear {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background: rgba(51, 174, 205, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color:#232323;
+    font-family: inherit;
+    font-size: 20px;
+    height: 45px;
+    padding: 10px;
+}
+
+.clear:hover {
+    background-color: rgba(155, 155, 255, 0.162);
+    cursor: pointer;
+}
+.clear:active {
+    background-color: rgba(155, 155, 255, 0.449);
+}
+
+.button-row {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 15px;
+    flex-basis: 35%;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    font-family: inherit;
+    font-size: 20px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.button-row:hover {
+    background-color: rgba(240, 240, 240, 0.633);
+    cursor: pointer;
+}
+
+.button-row:active {
+    background-color: rgba(93, 98, 100, 0.162);
+}
+
+.button-row i {
+    font-size: 20px;
+}
+
+.active-tool {
+    background-color: rgba(93, 98, 100, 0.5); /* Darker background */
+    color: #fff; /* Optional: change text color for contrast */
+}
+
+.picker {
+    padding:2px;
+    height: 40px;
+    flex-basis: 100%;
+    border-radius: 5px;
+}
+
+.picker:hover{
+    cursor: pointer;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 90%;
+}
+
+html {
+    margin: auto;
+}
+
+/*new checkbox*/
+.container {
+    display: block;
+    position: relative;
+    margin-bottom: 12px;
+    margin-left: 40px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transform: translateX(-2%);
+  }
+  
+  /* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    transform: translateX(-32px);
+    background-color: #eee;
+}
+  
+  /* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+
+}
+  
+  /* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+  /* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+  /* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#pen-size-container {
+	padding: 5px;
+    margin: 5px;
+    position: fixed;
+    top: 51%;
+    /*left: 24%;*/
+	height: 40%;
+	background-color: #ffffff61;
+	width: 30px;
+	border-radius: 12px;
+    transform: translateY(-40%) translateX(-70px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#pen-size {
+	width: 50%;
+	flex-basis: 90%;
+    writing-mode: vertical-lr;
+    direction: rtl;
+    vertical-align: middle;
+    margin: 10px 0;
+}
+
+#pen-size-container label {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.slider {
+	-webkit-appearance: none;
+	width: 100%;
+	border-radius: 10px;  
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	border-radius: 40%; 
+	background: #04AA6D;
+	cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #04AA6D;
+	cursor: pointer;
+  }
+
+#tools {
+    display: flex;
+    align-items: center;
+}
+
+.pen-size {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px; /* Adjust this to control distance from sketch */
+}
+
+.pen-icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#penSizeSlider {
+    writing-mode: bt-lr; /* Make slider vertical */
+    width: 100px;
+    height: 200px; /* Adjust size */
+}
+
+#canvas-container {
+    display: flex;
+    align-items: flex-start; /* Aligns slider and canvas side by side */
+    justify-content: center;
+    gap: 20px; /* Adds space between the slider and canvas */
+}
+
+#options {
+    display: flex;
+    flex-direction: row;
+}
